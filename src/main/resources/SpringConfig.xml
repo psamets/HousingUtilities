@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="baraxlo" class="com.housing.Baraxlo">
+        <constructor-arg index="0" type="java.lang.String" value="тюфяк"/>
+        <constructor-arg index="1" type="java.lang.String" value="хрень всякая"/>
+        <constructor-arg index="2" type="java.lang.String" value="тюфячок"/>
+        <!--constructor-arg index="3" type="java.lang.Integer" value="5"/-->
+        <!--property name="name" value="тюфяк" />
+        <property name="category" value="хрень всякая" />
+        <property name="description" value="тюфячок" />
+        <property name="cost" value="55" /-->
+    </bean>
+
+    <bean id="catalog" class="com.housing.Catalog">
+        <property name="baraxlo">
+            <ref bean="baraxlo" />
+        </property>
+    </bean>
+
+    <bean id="catalog2" class="com.housing.Catalog2">
+        <constructor-arg>
+            <bean class="com.housing.Catalog"/>
+        </constructor-arg>
+    </bean>
+
+</beans>
